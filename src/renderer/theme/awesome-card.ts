@@ -1,5 +1,11 @@
-// Define themes.
-const themes = {
+export interface Theme {
+  quote: string;
+  author: string;
+  background: string;
+  symbol: string;
+}
+
+export const themes: Record<string, Theme> = {
   light: {
     quote: '333',
     author: '2f80ed',
@@ -12,7 +18,7 @@ const themes = {
     background: '151515',
     symbol: '79ff97'
   },
-  "chartreuse-dark": {
+  'chartreuse-dark': {
     quote: 'fff',
     author: '7fff00',
     background: '000',
@@ -48,6 +54,30 @@ const themes = {
     background: '161320',
     symbol: 'DDB6F2'
   },
+  catppuccin_latte: {
+    quote: '179299',
+    author: '4c4f69',
+    background: 'eff1f5',
+    symbol: '8839ef'
+  },
+  catppuccin_frappe: {
+    quote: '81c8be',
+    author: 'c6d0f5',
+    background: '303446',
+    symbol: 'ca9ee6'
+  },
+  catppuccin_macchiato: {
+    quote: '8bd5ca',
+    author: 'cad3f5',
+    background: '24273a',
+    symbol: 'c6a0f6'
+  },
+  catppuccin_mocha: {
+    quote: '94e2d5',
+    author: 'cdd6f4',
+    background: '1e1e2e',
+    symbol: 'cba6f7'
+  },
   algolia: {
     quote: '00ADFE',
     author: 'FEFEFE',
@@ -72,16 +102,32 @@ const themes = {
     background: '2E3440',
     symbol: '88C0D0'
   },
+  github: {
+    quote: 'FFFFFF',
+    author: '4C566A',
+    background: '0D1117',
+    symbol: '43C293'
+  },
+  graywhite: {
+    quote: '24292E',
+    author: '24292E"',
+    background: 'FFFFFF',
+    symbol: '24292E'
+  },
+  moonlight: {
+    quote: 'F8F8F8',
+    author: 'FF757F',
+    background: '222436',
+    symbol: '599DFF'
+  }
 };
 
-const renderTheme = theme => {
-  // Check if theme exists in the themes object.
+export const renderTheme = (theme: keyof typeof themes) => {
+  // Check if theme exists in the themes object
   if (themes[theme]) {
     return themes[theme];
   }
 
-  // Else, return the light theme.
+  // Else, return the light theme
   return themes.light;
 };
-
-module.exports = { renderTheme, themes };
